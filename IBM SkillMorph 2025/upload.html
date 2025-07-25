@@ -16,8 +16,63 @@
       background: linear-gradient(to right, #f0f4f8, #ffffff);
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: white;
+      padding: 20px 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .left-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00aaff;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .auth-buttons button {
+      margin-left: 10px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .auth-buttons .login-btn {
+      background-color: white;
+      color: #043984;
+      border: 1px solid #043984;
+    }
+
+    .auth-buttons .register-btn {
+      background-color: #00aaff;
+      color: white;
     }
 
     .upload-container {
@@ -27,6 +82,7 @@
       max-width: 500px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 60px auto; /* replaces <br><br> */
     }
 
     .upload-container h2 {
@@ -77,39 +133,52 @@
       color: #777;
       margin-top: 10px;
     }
-
   </style>
 </head>
 <body>
 
-
-  <div class="upload-container">
-    <h2>Upload Your Resume</h2>
-    <form action="/submit-resume" method="post" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" name="name" id="name" required />
+  <header>
+    <nav>
+      <div class="left-nav">
+        <div class="logo">SkillMorph AI</div>
+        <ul class="nav-links">
+	  <li><a href="landing_page.html">Home</a></li>
+          <li><a href="#jobs">Jobs</a></li>
+          <li><a href="#internships">Internships</a></li>
+          <li><a href="#courses">Courses</a></li>
+        </ul>
       </div>
-
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" name="email" id="email" required />
+      <div class="auth-buttons">
+        <a href="login.html"><button class="login-btn">Login</button></a>
+        <a href="register.html"><button class="register-btn">Sign Up</button></a>
       </div>
+    </nav>
+  </header>
 
-      <div class="form-group">
-        <label for="skills">Skills (comma-separated)</label>
-        <input type="text" name="skills" id="skills" placeholder="e.g., Python, Java, SQL" />
-      </div>
+  <main>
+    <div class="upload-container">
+      <h2>Upload Your Resume</h2>
+      <form action="/submit-resume" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" required />
+        </div>
 
-      <div class="form-group">
-        <label for="resume">Upload Resume (PDF or DOCX)</label>
-        <input type="file" name="resume" id="resume" accept=".pdf, .doc, .docx" required />
-        <div class="note">Max file size: 5MB</div>
-      </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" required />
+        </div>
 
-      <button type="submit" class="submit-btn">Submit Resume</button>
-    </form>
-  </div>
+        <div class="form-group">
+          <label for="resume">Upload Resume (PDF or DOCX)</label>
+          <input type="file" name="resume" id="resume" accept=".pdf, .doc, .docx" required />
+          <div class="note">Max file size: 5MB</div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Resume</button>
+      </form>
+    </div>
+  </main>
 
 </body>
 </html>
